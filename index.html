@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kgotla Data Labs | Every Byte Tells A Story</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/abstract_logo-removebg-preview.png">
+    
+    <style>
+        /* Core Branding & Behavior */
+        body { font-family: 'Inter', sans-serif; background-color: #F4F4F4; scroll-behavior: smooth; }
+        .text-brand-teal { color: #006064; }
+        .bg-brand-teal { background-color: #006064; }
+        .text-brand-amber { color: #FFB300; }
+        .bg-brand-amber { background-color: #FFB300; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes flow {
+            0% { transform: translateX(-10px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(10px); opacity: 0; }
+        }
+        .data-dot { animation: flow 2s infinite linear; }
+
+        .profile-modal {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .profile-modal.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .step-card:hover .step-icon { transform: scale(1.1) rotate(5deg); }
+    </style>
+</head>
+<body class="text-gray-800 pb-24 md:pb-0">
+
+    <nav class="hidden md:flex fixed w-full z-50 top-6 px-8 justify-center">
+        <div class="max-w-7xl w-full bg-white/90 backdrop-blur-xl rounded-full border border-gray-200 shadow-sm px-6 py-2 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="p-1 border-2 border-[#006064] rounded-full bg-white shadow-md">
+                    <img src="images/abstract_logo-removebg-preview.png" alt="Kgotla Icon" class="h-10 w-10 object-contain">
+                </div>
+                <span class="font-bold text-[#006064] tracking-tight text-lg lowercase">kgotla data labs</span>
+            </div>
+            <div class="flex gap-8 text-sm font-medium text-gray-500">
+                <a href="#governance" class="hover:text-[#006064] transition">Sovereignty</a>
+                <a href="#pipeline" class="hover:text-[#006064] transition">Pipeline</a>
+                <a href="#demo" class="hover:text-[#006064] transition">Intelligence</a>
+                <a href="#engagement" class="hover:text-[#006064] transition">Process</a>
+            </div>
+            <a href="#contact" class="bg-brand-teal text-white px-8 py-2.5 rounded-full text-sm font-bold hover:bg-teal-800 transition shadow-lg shadow-teal-900/20">
+                Start Discovery
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-32 md:pt-48 pb-20 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center min-h-[90vh]">
+        <div class="space-y-8 animate-in fade-in slide-in-from-left duration-1000">
+
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-[#006064] leading-[0.9]">
+                Every byte <br><span class="text-brand-amber">tells a story.</span>
+            </h1>
+            <p class="text-xl text-gray-500 font-light max-w-lg leading-relaxed">
+                Localized data sovereignty for Botswana. We build the pipelines that fuel energy and logistics decisions.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#demo" class="bg-brand-teal text-white px-10 py-5 rounded-full font-bold shadow-2xl shadow-teal-900/40 hover:-translate-y-1 transition flex items-center gap-2">
+                    View Platform <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="border border-gray-200 px-10 py-5 rounded-full font-bold bg-white hover:bg-gray-50 transition flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-brand-amber"></i> Book Consult
+                </a>
+            </div>
+        </div>
+        <div class="rounded-[3.5rem] overflow-hidden shadow-2xl relative group border-4 border-white h-[500px]">
+            <img src="images/alt_16-by-9_banner.png" alt="Data Visualization Banner" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#006064]/20 to-transparent"></div>
+        </div>
+    </header>
+
+    <section id="governance" class="py-24 px-6 bg-[#002d2f] text-white rounded-[4rem] mb-20">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-8">
+                <h2 class="text-4xl md:text-5xl font-bold italic tracking-tight leading-tight">Sovereign Data, <br>Global Standards.</h2>
+                <p class="text-teal-100/70 font-light text-lg leading-relaxed">
+                    Generic cloud models don't account for local infrastructure nuances. We host where you operate, ensuring <strong>compliance</strong> with Botswana Data Protection Act and GDPR while maintaining <strong>zero-trust</strong> security.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-3xl bg-teal-900/30 border border-teal-800">
+                        <i data-lucide="shield-check" class="text-brand-amber mb-4"></i>
+                        <h4 class="font-bold mb-1">Local Governance</h4>
+                        <p class="text-xs text-teal-400 font-light">Lead by regional compliance experts.</p>
+                    </div>
+                    <div class="p-6 rounded-3xl bg-teal-900/30 border border-teal-800">
+                        <i data-lucide="fingerprint" class="text-brand-amber mb-4"></i>
+                        <h4 class="font-bold mb-1">Privacy First</h4>
+                        <p class="text-xs text-teal-400 font-light">Anonymized PII processing pipelines.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-teal-900/40 border border-teal-800 p-12 rounded-[3rem] text-center relative overflow-hidden">
+                <i data-lucide="lock" class="w-20 h-20 mx-auto text-brand-amber mb-6 opacity-80"></i>
+                <h3 class="text-2xl font-bold">Encrypted End-to-End</h3>
+                <p class="text-sm text-teal-300 mt-4 leading-relaxed">All energy and logistics data is audited against Botswana regulatory frameworks before any output generation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pipeline" class="py-24 px-6 mb-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-[#006064] mb-16 text-center bold tracking-tight">The Automation Lab</h2>
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+                <div class="flex-1 w-full bg-white p-10 rounded-[2.5rem] border border-gray-100 text-center shadow-sm">
+                    <div class="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="database" class="text-brand-teal"></i>
+                    </div>
+                    <h4 class="font-bold text-[#006064]">Ingestion</h4>
+                    <p class="text-xs text-gray-400 mt-2">Telemetry & ERP logs</p>
+                </div>
+                <i data-lucide="move-right" class="hidden md:block text-gray-300 data-dot"></i>
+                <i data-lucide="move-down" class="md:hidden text-gray-300"></i>
+                
+                <div class="flex-1 w-full bg-white p-10 rounded-[2.5rem] border border-gray-100 text-center shadow-sm">
+                     <div class="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="cpu" class="text-brand-teal"></i>
+                    </div>
+                    <h4 class="font-bold text-[#006064]">Refinement</h4>
+                    <p class="text-xs text-gray-400 mt-2">Cleaning & Normalization</p>
+                </div>
+                
+                <i data-lucide="move-right" class="hidden md:block text-gray-300 data-dot"></i>
+                <i data-lucide="move-down" class="md:hidden text-gray-300"></i>
+
+                <div class="flex-1 w-full bg-brand-teal p-10 rounded-[2.5rem] text-white text-center shadow-xl">
+                     <div class="w-12 h-12 bg-teal-800 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="layout-dashboard" class="text-brand-amber"></i>
+                    </div>
+                    <h4 class="font-bold">Action</h4>
+                    <p class="text-xs text-teal-200 mt-2">Executive Intelligence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-24 px-6 bg-white rounded-[4rem] mb-20 shadow-sm">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-bold text-[#006064] bold">Interactive Intelligence</h2>
+                    <p class="text-gray-500 mt-2 font-light">Real-time switching between sector models.</p>
+                </div>
+                <div class="flex bg-gray-100 p-1.5 rounded-2xl border border-gray-200">
+                    <button onclick="updateDashboard('energy')" id="btn-energy" class="px-8 py-3 rounded-xl text-xs font-bold transition-all bg-brand-teal text-white uppercase tracking-widest shadow-lg">Energy Grid</button>
+                    <button onclick="updateDashboard('trucking')" id="btn-trucking" class="px-8 py-3 rounded-xl text-xs font-bold transition-all text-gray-400 uppercase tracking-widest">Trucking Fleet</button>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="bg-[#002d2f] p-12 rounded-[3.5rem] text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-800 rounded-full blur-3xl opacity-20 translate-x-10 -translate-y-10"></div>
+                    
+                    <div>
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/5">
+                            <i data-lucide="activity" class="text-brand-amber"></i>
+                        </div>
+                        <h4 id="dash-metric-title" class="text-xs uppercase tracking-widest text-teal-400 font-bold mb-4">Grid Efficiency</h4>
+                        <div id="dash-metric-value" class="text-7xl font-bold tracking-tighter">98.2%</div>
+                    </div>
+                    <div class="pt-8 border-t border-teal-800 flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        <p class="text-[10px] font-mono text-teal-400 uppercase tracking-widest leading-none">Telemetry Active</p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-2 bg-gray-50 border border-gray-100 p-6 rounded-[3.5rem] relative overflow-hidden">
+                    <div id="plotly-chart" class="w-full h-[450px]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engagement" class="py-24 px-6 mb-20">
+        <div class="max-w-7xl mx-auto text-center mb-20">
+            <h2 class="text-4xl font-bold text-[#006064] italic mb-4">Discovery Phase</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">The first 48 hours of our partnership define the roadmap for success.</p>
+        </div>
+        
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+            <div class="step-card group text-center space-y-6">
+                <div class="step-icon w-20 h-20 bg-white border border-gray-100 rounded-[2rem] flex items-center justify-center mx-auto shadow-xl transition-all duration-500">
+                    <i data-lucide="message-square-plus" class="text-brand-teal w-8 h-8"></i>
+                </div>
+                <div class="relative px-8">
+                    <div class="hidden md:block absolute top-10 -right-6 w-12 border-t-2 border-dashed border-gray-200"></div>
+                    <h4 class="font-bold text-xl text-[#006064]">01. Protocol Brief</h4>
+                    <p class="text-sm text-gray-500 font-light mt-2">Initial call to map your current data ecosystem.</p>
+                </div>
+            </div>
+            <div class="step-card group text-center space-y-6">
+                <div class="step-icon w-20 h-20 bg-brand-teal rounded-[2rem] flex items-center justify-center mx-auto shadow-xl shadow-teal-900/20 transition-all duration-500">
+                    <i data-lucide="search" class="text-white w-8 h-8"></i>
+                </div>
+                <div class="relative px-8">
+                    <div class="hidden md:block absolute top-10 -right-6 w-12 border-t-2 border-dashed border-gray-200"></div>
+                    <h4 class="font-bold text-xl text-[#006064]">02. Asset Audit</h4>
+                    <p class="text-sm text-gray-500 font-light mt-2">Compliance and product leads review your data sources.</p>
+                </div>
+            </div>
+            <div class="step-card group text-center space-y-6">
+                <div class="step-icon w-20 h-20 bg-white border border-gray-100 rounded-[2rem] flex items-center justify-center mx-auto shadow-xl transition-all duration-500">
+                    <i data-lucide="rocket" class="text-brand-amber w-8 h-8"></i>
+                </div>
+                <div class="px-8">
+                    <h4 class="font-bold text-xl text-[#006064]">03. Lab Roadmap</h4>
+                    <p class="text-sm text-gray-500 font-light mt-2">A fixed-scope proposal delivered with clear KPIs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-24 px-6 mb-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-bold text-[#006064]">Meet the Team</h2>
+
+            </div>
+            <div class="flex gap-4">
+                <button onclick="scrollT(-320)" class="p-4 rounded-full border border-gray-200 hover:bg-brand-teal hover:text-white transition shadow-sm bg-white"><i data-lucide="arrow-left"></i></button>
+                <button onclick="scrollT(320)" class="p-4 rounded-full border border-gray-200 hover:bg-brand-teal hover:text-white transition shadow-sm bg-white"><i data-lucide="arrow-right"></i></button>
+            </div>
+        </div>
+        <div id="team-track" class="max-w-7xl mx-auto flex gap-8 overflow-x-auto no-scrollbar scroll-smooth pb-10">
+            <div onclick="openProfile('Regulatory Compliance Lead', 'Architect of our Botswana data sovereignty framework. Audits and supervises compliance to cross-border energy regulations and Botswana DPA compliance.')" class="min-w-[320px] group cursor-pointer">
+                <div class="bg-white p-6 rounded-[3.5rem] border border-gray-100 group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    <div class="w-full aspect-square bg-teal-50 rounded-[2.5rem] mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:bg-teal-100 transition-all duration-500 border border-teal-100/50">
+                        <i data-lucide="user-round" class="w-20 h-20 text-brand-teal opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="font-bold text-xl italic text-[#006064]">Kayla Montshiwa</h3>
+                        <p class="text-brand-amber text-xs font-bold uppercase tracking-widest mt-1">Regulatory Compliance Lead</p>
+                    </div>
+                </div>
+            </div>
+            <div onclick="openProfile('Data Product Lead', 'Engineering the data engine, scraping tools, and the user dashboard.')" class="min-w-[320px] group cursor-pointer">
+                <div class="bg-white p-6 rounded-[3.5rem] border border-gray-100 group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    <div class="w-full aspect-square bg-teal-50 rounded-[2.5rem] mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:bg-teal-100 transition-all duration-500 border border-teal-100/50">
+                        <i data-lucide="user-round" class="w-20 h-20 text-brand-teal opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="font-bold text-xl italic text-[#006064]">Mmopiemang Mmopiemang</h3>
+                        <p class="text-brand-amber text-xs font-bold uppercase tracking-widest mt-1">Data Product Lead</p>
+                    </div>
+                </div>
+            </div>
+            <div onclick="openProfile('Industry Solutions Lead', 'Translating trucking/energy pain points into product requirements.')" class="min-w-[320px] group cursor-pointer">
+                <div class="bg-white p-6 rounded-[3.5rem] border border-gray-100 group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    <div class="w-full aspect-square bg-teal-50 rounded-[2.5rem] mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:bg-teal-100 transition-all duration-500 border border-teal-100/50">
+                        <i data-lucide="user-round" class="w-20 h-20 text-brand-teal opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="font-bold text-xl italic text-[#006064]">Alfred Olorato Moatlhodi</h3>
+                        <p class="text-brand-amber text-xs font-bold uppercase tracking-widest mt-1">Industry Solutions Lead</p>
+                    </div>
+                </div>
+            </div>
+            <div onclick="openProfile('Business Operations Lead', 'Handles and spearheads internal operations such as legal filings, HR, and office/digital workspace management.')" class="min-w-[320px] group cursor-pointer">
+                <div class="bg-white p-6 rounded-[3.5rem] border border-gray-100 group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    <div class="w-full aspect-square bg-teal-50 rounded-[2.5rem] mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:bg-teal-100 transition-all duration-500 border border-teal-100/50">
+                        <i data-lucide="user-round" class="w-20 h-20 text-brand-teal opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <!--<img src="images/https://placehold.co/400x400/006064/FFFFFF?text=Compliance" class="rounded-[2.5rem] mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">-->
+                    <div class="px-4 pb-4">
+                        <h3 class="font-bold text-xl italic text-[#006064]">Maatla Micheal Aaron</h3>
+                        <p class="text-brand-amber text-xs font-bold uppercase tracking-widest mt-1">Business Operations Lead</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 px-6 bg-[#006064] text-white rounded-t-[4rem]">
+        <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-20">
+            <div class="space-y-8">
+                <h2 class="text-5xl font-bold italic tracking-tighter">Initiate <br>Protocol.</h2>
+                <p class="text-teal-200/60 font-light max-w-sm">Every story begins with a single byte. Let us help you tell yours with clarity and precision.</p>
+                <div class="space-y-4 pt-4">
+                    <a href="mailto:kgotla.datalabs@gmail.com" class="flex items-center gap-4 text-brand-amber font-bold hover:text-white transition-colors duration-300">
+                        <i data-lucide="mail"></i> kgotla.datalabs@gmail.com
+                    </a>
+                    <div class="flex items-center gap-4 text-white font-light opacity-60">
+                        <i data-lucide="map-pin"></i> Gaborone, Botswana
+                    </div>
+                </div>
+            </div>
+            <form action="mailto:kgotla.datalabs@gmail.com" method="post" enctype="text/plain" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="First Name" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                    <input type="text" placeholder="Sector" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                </div>
+                <input type="email" placeholder="Business Email" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                <textarea rows="4" placeholder="Brief Summary" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition"></textarea>
+                <button type="submit" class="w-full bg-brand-amber text-white font-bold py-6 rounded-[2rem] hover:bg-amber-500 transition-all shadow-xl shadow-amber-900/20 active:scale-[0.98]">Submit Protocol
+                </button>
+            </form>
+        </div>
+        <div class="max-w-7xl mx-auto mt-24 pt-12 border-t border-teal-800 text-center opacity-40 text-xs tracking-widest uppercase">
+            © 2026 Kgotla Data Labs. Precision Intelligence.
+        </div>
+    </footer>
+
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-white border-t border-gray-100 z-[100] flex justify-around items-center shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        <a href="#" class="text-brand-teal p-3 flex flex-col items-center"><i data-lucide="home"></i></a>
+        <a href="#pipeline" class="text-gray-300 p-3 flex flex-col items-center"><i data-lucide="layers"></i></a>
+        <a href="#demo" class="text-gray-300 p-3 flex flex-col items-center"><i data-lucide="activity"></i></a>
+        <a href="#contact" class="text-gray-300 p-3 flex flex-col items-center"><i data-lucide="mail"></i></a>
+    </nav>
+
+    <div id="modal-overlay" class="fixed inset-0 bg-[#002d2f]/95 backdrop-blur-md z-[150] profile-modal hidden items-center justify-center p-6">
+        <div class="bg-white rounded-[4rem] max-w-xl w-full p-12 relative shadow-4xl">
+            <button onclick="closeProfile()" class="absolute top-8 right-8 text-gray-300 hover:text-brand-teal transition">
+                <i data-lucide="circle-x"></i>
+            </button>
+            <div class="text-center">
+                <div class="w-24 h-24 bg-teal-50 rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 border border-teal-100">
+                    <i data-lucide="user-round" class="text-brand-teal w-10 h-10"></i>
+                </div>
+                <h3 id="modal-title" class="text-3xl font-bold text-[#006064] mb-2 italic"></h3>
+                <p id="modal-desc" class="text-gray-500 leading-relaxed font-light text-lg mb-8"></p>
+                <div class="flex justify-center gap-4">
+                    <button class="bg-brand-teal text-white px-10 py-3 rounded-full font-bold hover:bg-teal-800 transition shadow-lg">View Credentials</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const plotEl = document.getElementById('plotly-chart');
+        
+        function drawChart(data, color, label) {
+            const trace = {
+                x: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
+                y: data,
+                type: 'scatter',
+                mode: 'lines+markers',
+                name: label,
+                line: { shape: 'spline', color: color, width: 5 },
+                marker: { size: 10, color: '#002d2f', border: { width: 2, color: color } }
+            };
+            
+            const layout = {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { t: 20, b: 50, l: 50, r: 20 },
+                xaxis: { gridcolor: '#f0f0f0', zeroline: false, tickfont: { family: 'Inter', size: 10, color: '#999' } },
+                yaxis: { gridcolor: '#f0f0f0', zeroline: false, tickfont: { family: 'Inter', size: 10, color: '#999' } },
+                showlegend: false,
+                font: { family: 'Inter, sans-serif' },
+                hovermode: 'closest'
+            };
+            
+            Plotly.newPlot(plotEl, [trace], layout, {responsive: true, displayModeBar: false});
+        }
+
+        function updateDashboard(type) {
+            const btnE = document.getElementById('btn-energy');
+            const btnT = document.getElementById('btn-trucking');
+            const mTitle = document.getElementById('dash-metric-title');
+            const mVal = document.getElementById('dash-metric-value');
+
+            if(type === 'energy') {
+                btnE.classList.add('bg-brand-teal', 'text-white', 'shadow-lg');
+                btnE.classList.remove('text-gray-400');
+                btnT.classList.remove('bg-brand-teal', 'text-white', 'shadow-lg');
+                btnT.classList.add('text-gray-400');
+                
+                mTitle.innerText = 'Grid Efficiency';
+                mVal.innerText = '98.2%';
+                drawChart([88, 92, 98, 96, 99, 94, 98], '#FFB300', 'Grid Output');
+            } else {
+                btnT.classList.add('bg-brand-teal', 'text-white', 'shadow-lg');
+                btnT.classList.remove('text-gray-400');
+                btnE.classList.remove('bg-brand-teal', 'text-white', 'shadow-lg');
+                btnE.classList.add('text-gray-400');
+                
+                mTitle.innerText = 'Fleet Utilization';
+                mVal.innerText = '94.5%';
+                drawChart([70, 85, 94, 88, 92, 95, 94], '#006064', 'Fleet Utilization');
+            }
+        }
+
+        function openProfile(title, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            const modal = document.getElementById('modal-overlay');
+            modal.classList.remove('hidden');
+            
+            setTimeout(() => {
+                modal.classList.add('flex', 'active');
+            }, 10);
+        }
+
+        function closeProfile() {
+            const modal = document.getElementById('modal-overlay');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 400);
+        }
+
+        function scrollT(val) {
+            document.getElementById('team-track').scrollLeft += val;
+        }
+
+        window.onload = () => {
+            // Load initial chart
+            drawChart([88, 92, 98, 96, 99, 94, 98], '#FFB300', 'Grid Output');
+        };
+    </script>
+</body>
+</html>
