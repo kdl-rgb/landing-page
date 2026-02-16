@@ -304,14 +304,18 @@
                     </div>
                 </div>
             </div>
-            <form action="https://formspree.io/f/mlgwnnrp" method="PAST" enctype="text/plain" class="space-y-4">
+            <form action="https://formspree.io/f/mlgwnnrp" method="POST" class="space-y-4">
                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" name="firstName" placeholder="First Name" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
-                    <input type="text" name="sector" placeholder="Sector" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                    <input type="text" name="firstName" placeholder="First Name" required class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                    <input type="text" name="sector" placeholder="Sector" required class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
                 </div>
-                <input type="email" name="email" placeholder="Business Email" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
-                <textarea rows="4" name="summary" placeholder="Brief Summary" class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition"></textarea>
-                <button type="submit" class="w-full bg-brand-amber text-white font-bold py-6 rounded-[2rem] hover:bg-amber-500 transition-all shadow-xl shadow-amber-900/20 active:scale-[0.98]">Submit Protocol
+                
+                <input type="email" name="email" placeholder="Business Email" required class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition">
+                
+                <textarea name="summary" rows="4" placeholder="Brief Summary" required class="w-full p-6 rounded-[2rem] bg-teal-900/40 border border-teal-800 focus:outline-none focus:border-brand-amber transition"></textarea>
+                
+                <button type="submit" class="w-full bg-brand-amber text-white font-bold py-6 rounded-[2rem] hover:bg-amber-500 transition-all shadow-xl shadow-amber-900/20 active:scale-[0.98]">
+                    Submit Protocol
                 </button>
             </form>
         </div>
